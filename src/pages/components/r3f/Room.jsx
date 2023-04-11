@@ -4,6 +4,7 @@ import {
   PerspectiveCamera,
   PresentationControls,
   useGLTF,
+  useTexture,
 } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { motion } from "framer-motion";
@@ -26,8 +27,8 @@ export default function Room() {
           enablePan={false}
         />
         <Box />
-        <ambientLight intensity={0.5} />
-        <pointLight position={[0, 20, 0]} intensity={0.75} />
+        {/* <ambientLight intensity={0.5} />
+        <pointLight position={[0, 20, 0]} intensity={0.75} /> */}
       </Canvas>
     </div>
   );
@@ -35,6 +36,8 @@ export default function Room() {
 
 const Box = () => {
   const room = useGLTF("/RoomV3.glb");
+  const texture = useTexture("https://localhost:3000/RoomV2.hdr");
+  texture.flipY = false;
   //   room.scene.children.forEach((mesh) => {
   //     console.log(mesh);
   //     mesh.castShadow = true;
@@ -60,7 +63,9 @@ const Box = () => {
   });
   return (
     <Center>
-      <primitive scale={scale} object={room?.scene} />
+      <primitive scale={scale} object={room?.scene}>
+        <meshBasicMaterial map={texture} />
+      </primitive>
     </Center>
   );
 };
