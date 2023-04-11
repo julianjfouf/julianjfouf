@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*::selection {
+  background: #000000;
+  color: #ffffff;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+.ambient {
+  background: radial-gradient(
+    rgb(59 130 246 / 33.333%),
+    transparent,
+    transparent
+  );
+}
+
+.wave {
+  transform-origin: bottom right;
+  animation: waving infinite linear 1000ms;
+  display: inline-block;
+}
+
+@keyframes waving {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(5deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
