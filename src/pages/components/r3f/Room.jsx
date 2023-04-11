@@ -36,7 +36,7 @@ export default function Room() {
 
 const Box = () => {
   const room = useGLTF("/RoomV3.glb");
-  const texture = useTexture("https://localhost:3000/RoomV2.hdr");
+  const texture = useTexture("/RoomV2.hdr");
   texture.flipY = false;
   //   room.scene.children.forEach((mesh) => {
   //     console.log(mesh);
