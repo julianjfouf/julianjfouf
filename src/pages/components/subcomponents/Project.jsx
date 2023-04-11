@@ -18,10 +18,10 @@ const Project = ({ src, title, description, skills, git, site }) => {
           <h1 className="text-lg lg:text-2xl font-[700]">{title}</h1>
           <p className="lg:mt-2 text-xs lg:text-base">{description}</p>
           <div className="flex mt-2 gap-2 justify-start items-start">
-            <Link href={git} target="_blank">
+            <Link href={git ? git : `/`} target="_blank">
               <GitHub className="text-blue-400 hover:scale-[1.15] hover:text-blue-600 transition-all duration-300" />
             </Link>
-            <Link href={site} target="_blank">
+            <Link href={site ? site : `/`} target="_blank">
               <Visibility className="text-blue-400 hover:scale-[1.15] hover:text-blue-600 transition-all duration-300" />
             </Link>
           </div>
