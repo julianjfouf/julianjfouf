@@ -34,7 +34,7 @@ export default function Room() {
 }
 
 const Box = () => {
-  const room = useGLTF("https://julianjfoufportfolio.vercel.app/RoomV3.glb");
+  const room = useGLTF("/RoomV3.glb");
   //   room.scene.children.forEach((mesh) => {
   //     console.log(mesh);
   //     mesh.castShadow = true;

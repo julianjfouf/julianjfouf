@@ -20,7 +20,7 @@ export default function Earth({ show }) {
 }
 
 const Item = ({ show }) => {
-  const earth = useGLTF("https://julianjfoufportfolio.vercel.app/lowpoly_earth.glb");
+  const earth = useGLTF("/lowpoly_earth.glb");
   const [scale, setScale] = useState(0);
   const [start, setStart] = useState(false);
   const item = useRef();
