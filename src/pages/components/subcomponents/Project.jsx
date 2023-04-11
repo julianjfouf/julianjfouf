@@ -26,7 +26,7 @@ const Project = ({ src, title, description, skills, git, site }) => {
             </Link>
           </div>
           <div className="mt-4 flex gap-2 flex-wrap">
-            {skills.map((item, index) => (
+            {skills?.map((item, index) => (
               <Chip
                 key={index}
                 variant="outlined"
