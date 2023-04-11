@@ -3,7 +3,6 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
 
 export default function Earth({ show }) {
-  const earth = useGLTF("http://localhost:3000/lowpoly_earth.glb");
   return (
     <Canvas
       gl={{ antialias: true }}
@@ -21,7 +20,7 @@ export default function Earth({ show }) {
 }
 
 const Item = ({ show }) => {
-  const earth = useGLTF("http://localhost:3000/lowpoly_earth.glb");
+  const earth = useGLTF("https://julianjfoufportfolio.vercel.app/lowpoly_earth.glb");
   const [scale, setScale] = useState(0);
   const [start, setStart] = useState(false);
   const item = useRef();

@@ -19,7 +19,7 @@ const Cat = ({ show }) => {
 const Icon = ({ show }) => {
   const [scale, setScale] = useState(0);
   const [rotation, setRotation] = useState(0);
-  const { scene } = useGLTF("http://localhost:3000/react_logo.glb");
+  const { scene } = useGLTF("https://julianjfoufportfolio.vercel.app/react_logo.glb");
   const [start, setStart] = useState(false);
   const item = useRef();
 
