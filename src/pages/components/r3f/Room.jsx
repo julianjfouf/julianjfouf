@@ -2,6 +2,7 @@ import {
   Center,
   OrbitControls,
   PerspectiveCamera,
+  Plane,
   PresentationControls,
   useGLTF,
   useTexture,
@@ -10,6 +11,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { sRGBEncoding } from "three";
+import * as THREE from "three";
 
 export default function Room() {
   return (
@@ -20,13 +22,12 @@ export default function Room() {
         camera={{ fov: 45, position: [15, 15, 25] }}
         className="cursor-grab active:cursor-grabbing"
       >
-        <OrbitControls
-          autoRotate
-          enableDamping
-          enableZoom={false}
-          enablePan={false}
-        />
+        <OrbitControls enableDamping />
         <Box />
+        {/* <mesh rotation={[0, Math.PI / 2, 0]} position={[1.56, -3.5, 4.95]}>
+          <planeGeometry args={[3.7, 2]} />
+          <meshBasicMaterial color="#e57f33" />
+        </mesh> */}
         {/* <ambientLight intensity={0.5} />
         <pointLight position={[0, 20, 0]} intensity={0.75} /> */}
       </Canvas>
@@ -36,8 +37,20 @@ export default function Room() {
 
 const Box = () => {
   const room = useGLTF("/RoomV3.glb");
-  const texture = useTexture("/RoomV2.hdr");
+  // const texture = useTexture("/RoomV2.hdr");
+
+  const texture = useTexture("/RoomV3.jpg");
+  texture.encoding = THREE.sRGBEncoding;
   texture.flipY = false;
+
+  const bakedMaterial = new THREE.MeshBasicMaterial({ map: texture });
+
+  room.scene.traverse((child) => {
+    child.material = bakedMaterial;
+  });
+
+  console.log(room);
+  // texture.flipY = false;
   //   room.scene.children.forEach((mesh) => {
   //     console.log(mesh);
   //     mesh.castShadow = true;
@@ -61,10 +74,11 @@ const Box = () => {
       setScale((prev) => prev + 0.005 * deltaTime);
     }
   });
+
   return (
     <Center>
       <primitive scale={scale} object={room?.scene}>
-        <meshBasicMaterial map={texture} />
+        <meshBasicMaterial color="red" />
       </primitive>
     </Center>
   );
