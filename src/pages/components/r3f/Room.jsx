@@ -36,7 +36,7 @@ export default function Room() {
 }
 
 const Box = () => {
-  const room = useGLTF("/RoomV3.glb");
+  const room = useGLTF("/RoomV4.glb");
   // const texture = useTexture("/RoomV2.hdr");
 
   const texture = useTexture("/RoomV3.jpg");
