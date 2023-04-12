@@ -33,8 +33,8 @@ export default function Room() {
           <planeGeometry args={[3.7, 2]} />
           <meshBasicMaterial color="#e57f33" />
         </mesh> */}
-        {/* <ambientLight intensity={0.5} />
-        <pointLight position={[0, 20, 0]} intensity={0.75} /> */}
+        <ambientLight intensity={0.5} />
+        <pointLight position={[0, 20, 0]} intensity={0.75} />
       </Canvas>
     </div>
   );
@@ -44,17 +44,17 @@ const Box = () => {
   const room = useGLTF("/RoomV4.glb");
   // const texture = useTexture("/RoomV2.hdr");
 
-  const texture = useTexture("/RoomV3.jpg");
-  texture.encoding = THREE.sRGBEncoding;
-  texture.flipY = false;
+  // const texture = useTexture("/RoomV3.jpg");
+  // texture.encoding = THREE.sRGBEncoding;
+  // texture.flipY = false;
 
-  const bakedMaterial = new THREE.MeshBasicMaterial({ map: texture });
+  // const bakedMaterial = new THREE.MeshBasicMaterial({ map: texture });
 
-  room.scene.traverse((child) => {
-    child.material = bakedMaterial;
-  });
+  // room.scene.traverse((child) => {
+  //   child.material = bakedMaterial;
+  // });
 
-  console.log(room);
+  // console.log(room);
   // texture.flipY = false;
   //   room.scene.children.forEach((mesh) => {
   //     console.log(mesh);
