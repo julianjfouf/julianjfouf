@@ -22,7 +22,12 @@ export default function Room() {
         camera={{ fov: 45, position: [15, 15, 25] }}
         className="cursor-grab active:cursor-grabbing"
       >
-        <OrbitControls enableDamping />
+        <OrbitControls
+          autoRotate
+          enableZoom={false}
+          enablePan={false}
+          enableDamping
+        />
         <Box />
         {/* <mesh rotation={[0, Math.PI / 2, 0]} position={[1.56, -3.5, 4.95]}>
           <planeGeometry args={[3.7, 2]} />
